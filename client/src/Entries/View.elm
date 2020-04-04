@@ -4,6 +4,9 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Entry.Types exposing (..)
 import Entries.Types exposing (..)
+import NewEntry.View exposing (newEntryView)
+
+import List exposing (append)
 
 import Round
 import Parser exposing (..)
@@ -66,13 +69,15 @@ listHeader =
                 []
                 [ text "where" ]
              ]
+        , td []
+             []
         ]
 
 
 listView : Entries -> Html Msg
 listView entries =
     ul []
-        (listHeader :: List.map itemView entries)
+        (append (listHeader :: List.map itemView entries) [newEntryView])
 
 
 dateView : Date -> Html Msg
@@ -132,5 +137,7 @@ itemView entry =
                 []
                 [ text entry.location ]
             ]
+        , td []
+             [ button [] [ text "\u{2716}" ] ]
         ]
 

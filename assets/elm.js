@@ -6306,7 +6306,7 @@ var $elm$http$Http$get = function (r) {
 var $author$project$Entries$Api$getEntries = $elm$http$Http$get(
 	{
 		expect: A2($elm$http$Http$expectJson, $author$project$Entries$Types$EntriesFetched, $author$project$Entries$Api$entriesDecoder),
-		url: 'http://localhost:3434/entries/'
+		url: 'http://192.168.178.77:3434/entries/'
 	});
 var $elm$core$Platform$Cmd$map = _Platform_map;
 var $author$project$App$State$initialCommand = A2($elm$core$Platform$Cmd$map, $author$project$App$Types$EntriesMsg, $author$project$Entries$Api$getEntries);
@@ -6315,6 +6315,15 @@ var $author$project$App$State$initialModel = {entries: $author$project$Entries$S
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
 var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$core$List$append = F2(
+	function (xs, ys) {
+		if (!ys.b) {
+			return xs;
+		} else {
+			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
+		}
+	});
+var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $author$project$Entries$View$dateView = function (_v0) {
@@ -7058,6 +7067,19 @@ var $author$project$Entries$View$itemView = function (entry) {
 							[
 								$elm$html$Html$text(entry.location)
 							]))
+					])),
+				A2(
+				$elm$html$Html$td,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$elm$html$Html$button,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('\u2716')
+							]))
 					]))
 			]));
 };
@@ -7156,6 +7178,140 @@ var $author$project$Entries$View$listHeader = A2(
 						[
 							$elm$html$Html$text('where')
 						]))
+				])),
+			A2($elm$html$Html$td, _List_Nil, _List_Nil)
+		]));
+var $elm$html$Html$input = _VirtualDom_node('input');
+var $elm$json$Json$Encode$string = _Json_wrap;
+var $elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$string(string));
+	});
+var $elm$html$Html$Attributes$placeholder = $elm$html$Html$Attributes$stringProperty('placeholder');
+var $elm$html$Html$Attributes$size = function (n) {
+	return A2(
+		_VirtualDom_attribute,
+		'size',
+		$elm$core$String$fromInt(n));
+};
+var $author$project$NewEntry$View$newEntryView = A2(
+	$elm$html$Html$tr,
+	_List_Nil,
+	_List_fromArray(
+		[
+			A2(
+			$elm$html$Html$td,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$input,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$placeholder('km'),
+							$elm$html$Html$Attributes$size(1)
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$td,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$input,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$placeholder('date'),
+							$elm$html$Html$Attributes$size(1)
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$td,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$input,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$placeholder('ℓ'),
+							$elm$html$Html$Attributes$size(1)
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$td,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$input,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$placeholder('€/ℓ'),
+							$elm$html$Html$Attributes$size(1)
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$td,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$input,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$placeholder('€'),
+							$elm$html$Html$Attributes$size(1)
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$td,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$input,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$placeholder('payer'),
+							$elm$html$Html$Attributes$size(1)
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$td,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$input,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$placeholder('place'),
+							$elm$html$Html$Attributes$size(1)
+						]),
+					_List_Nil)
+				])),
+			A2(
+			$elm$html$Html$td,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$button,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text('\u271A')
+						]))
 				]))
 		]));
 var $elm$html$Html$ul = _VirtualDom_node('ul');
@@ -7164,9 +7320,13 @@ var $author$project$Entries$View$listView = function (entries) {
 		$elm$html$Html$ul,
 		_List_Nil,
 		A2(
-			$elm$core$List$cons,
-			$author$project$Entries$View$listHeader,
-			A2($elm$core$List$map, $author$project$Entries$View$itemView, entries)));
+			$elm$core$List$append,
+			A2(
+				$elm$core$List$cons,
+				$author$project$Entries$View$listHeader,
+				A2($elm$core$List$map, $author$project$Entries$View$itemView, entries)),
+			_List_fromArray(
+				[$author$project$NewEntry$View$newEntryView])));
 };
 var $elm$virtual_dom$VirtualDom$map = _VirtualDom_map;
 var $elm$html$Html$map = $elm$virtual_dom$VirtualDom$map;

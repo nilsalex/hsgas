@@ -5,8 +5,6 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Entries.View as Entries
-import Entries.View as Entries
-
 
 root : Model -> Html Msg
 root model =

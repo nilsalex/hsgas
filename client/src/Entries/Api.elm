@@ -9,7 +9,7 @@ import Entries.Types exposing (..)
 getEntries : Cmd Msg
 getEntries =
     Http.get
-        { url = "http://localhost:3434/entries/"
+        { url = "http://192.168.178.77:3434/entries/"
         , expect = Http.expectJson EntriesFetched entriesDecoder
         }
 
